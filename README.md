@@ -13,3 +13,9 @@ npm run serve
 
 ```
 
+## TODOs
+* [ ] Taiwind CSS Integration
+* [ ] scoped assets
+* [ ] image compression
+* [ ] Lighhouse badge in the README
+* [ ] meta and og
