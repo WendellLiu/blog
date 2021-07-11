@@ -1,5 +1,7 @@
 # blog
-blog site created from eleventy-base-blog
+self-served blog created from eleventy-base-blog
+
+https://blog.wendellatman.com/
 
 ## Develop
 ```
