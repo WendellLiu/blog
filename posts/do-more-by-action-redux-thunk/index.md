@@ -80,8 +80,7 @@ from [http://redux.js.org/docs/advanced/AsyncActions.html](http://redux.js.org/d
 
 再我們理解什麼是Thunk，並且這個概念如何在Redux系統的action creator實做後，那到底dispatch這個function是如何知道我們action creator回傳的究竟是pure object(action)還是function(thunk)呢？
 
-![surprised dog](./1__bUmgZzJrHPxMzZFxQJEGrw.jpeg)
-surprised dog
+![surprised dog](./surprised_dog.jpeg)
 
 這也就是[React-Thunk](https://github.com/gaearon/redux-thunk)這個專案的內容了。實際上這個專案不是提供任何thunk讓大家使用，而是一個Redux Middleware。這個Middleware改造了你的dispatch，讓他有能力判斷送進去的東西是一個pure object還是function。
 
@@ -100,7 +99,7 @@ if (typeof action === ‘function’){}
 
 經由這個Redux Middleware我們就能夠毫無顧忌(？)的不分action creator或thunk都把他們通通dispatch。
 
-![](./1__CnvFIXJjKsMlSYkV__NSIyg.jpeg)
+![nope](./nope.jpeg)
 
 總結：
 

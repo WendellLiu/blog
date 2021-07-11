@@ -13,7 +13,7 @@ layout: layouts/post.njk
 
 舉凡編程風格、系統架構、框架，乃至使用工具，時時有新玩意兒。作為一個前端工程師，為求不要成為 **邊緣人** ，又不想 **毀了** 無數杯咖啡所堆起的碉堡，誠惶誠恐地追蹤專案中使用套件的最新消息是十分合理的。
 
-![What Do We Want](./1__2U6Ek1bucPSWXJ30lNQC1Q.jpeg)
+![What Do We Want](./what_do_we_want.jpeg)
 What Do We Want
 
 [Viscovery](http://www.viscovery.com) 的前端團隊近期將專案中[React Router v2](https://github.com/ReactTraining/react-router/tree/v2.8.1/docs) 升級至最新的[React Router v4](https://reacttraining.com/react-router/)。本篇文章整理此經驗，以及更多兩個版本的不同。
@@ -45,14 +45,14 @@ v2 開始，團隊自行實作一個抽離React Component 的Api 介面，而這
 
 實際攤開v2、v3 的React Router文件以及原始碼，過往的流程：
 
-![Flow Chart in v2, v3](./1__a4dLqqOcD7lDlDPkd10NZg.png)
+![Flow Chart in v2, v3](./flow_chart_v2_v3.png)
 Flow Chart in v2, v3
 
 使用者可以選擇要以JSX 或Plain Route（javascript object）的形式寫出Route，若是前者， `<Router>` 會將其轉換為Plain Route；最後統一由Plain Route 的形式經由React Router 調整成真正輸出的React Component。開發者可以把寫出JSX Route 視為React Router 給予的語法糖，因為那並不是最後真正進入React System 的模樣。
 
 而v4 之後的流程圖：
 
-![Flow Chart in v4](./1__5CmyoK880Cz__uBbNpLRrrA.png)
+![Flow Chart in v4](./flow_chart_v4.png)
 Flow Chart in v4
 
 直接引用 `react-router-dom` 中的 `<Route>` 就已經是最後React Component 的形式，不會再經過轉換。當然仍可以利用 `react-router-config` 的函數將Route Config 轉為 `<Route>` 。（這部分可見後文）

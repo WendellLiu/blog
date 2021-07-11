@@ -11,7 +11,7 @@ Github Repository先上： [https://github.com/WendellLiu/react-checkbox-duet](h
 
 最近又開源了一個React Component，React Checkbox Duet。因其可適用於兩不同情境，並且是兩個基礎component的搭配，故取名為Duet（二重奏）
 
-![Freddie Mercury and David Bowie — Under Pressure](./1__p8i35MjmZng5FMQSqTeylA.jpeg)
+![Freddie Mercury and David Bowie — Under Pressure](./freddie_and_david.jpeg)
 Freddie Mercury and David Bowie — Under Pressure
 
 簡而言之是一個React化的Checkbox，本篇是希望能夠寫一些和其他類似專案的比較和他們帶來的啟發。

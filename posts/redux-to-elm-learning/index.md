@@ -37,7 +37,7 @@ Elm於2012年首度發表，並且很直接地瞄準了Web UI的領域。作為�
 
 所以或許能夠粗糙的將Elm視為以純函數式語言來撰寫JavaScript。然而與眾多[_compile-to-JavaScript-language_](http://compile%20to%20JavaScript%20language)比較，Elm總歸是一獨立語言，雖然提供了一些方式來和JavsScript溝通，但肯定更加不方便。例如import JavaScript module。實際上，Elm有其獨立的開發生態體系，因此更應該先有的觀念是，別把Elm直接和CoffeeScript、TypeScript聯想在一起。
 
-![from [http://elm-lang.org/blog/blazing-fast-html](http://elm-lang.org/blog/blazing-fast-html)](./1__oc1x0W__QO1EyYJaBQSzVtg.png)
+![from [http://elm-lang.org/blog/blazing-fast-html](http://elm-lang.org/blog/blazing-fast-html)](./benchmark.png)
 from [http://elm-lang.org/blog/blazing-fast-html](http://elm-lang.org/blog/blazing-fast-html)
 
 由於Elm的重點擺在編寫Web UI，講白了就是要Render Html。官網有上面這張圖，目的是和其他一樣精於此道者的效能比較。這裡也有另一份2014年時作的[效能評測](https://github.com/pygy/todomvc-perf-comparison)，以供參考。

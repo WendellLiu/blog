@@ -7,7 +7,7 @@ keywords: []
 layout: layouts/post.njk
 ---
 
-![Eiskristalle](./1__10F5r7yZKIs8rbtfn6REGg.jpeg)
+![Eiskristalle](./eiskristalle.jpeg)
 Eiskristalle
 
 我自己的程式開發學習路上，存有一個很迷人的名詞，便是本篇的主角 — Pure Function。想了許久，終於找到一段時間能夠把自己對於Pure Function 的心得記錄成文。

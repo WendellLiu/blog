@@ -7,7 +7,7 @@ keywords: []
 layout: layouts/post.njk
 ---
 
-![](./1__u5GT6ahmTqRLZsfVsmSxhg.jpeg)
+![](./ned_stark.jpeg)
 
 > 我猜寫寫測試不至於被發便當啦，大家不必擔心。
 

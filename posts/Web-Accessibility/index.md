@@ -7,7 +7,7 @@ keywords: []
 layout: layouts/post.njk
 ---
 
-![Oscar Pistorius](./1__JHGanTYz9yXnqCg0fdUUzA.jpeg)
+![Oscar Pistorius](./oscar_pistorius.jpeg)
 Oscar Pistorius
 
 > 警告：不是在談WebAssembly，被騙進來的先說聲抱歉了（但仍然可以意思意思給一個clap）。

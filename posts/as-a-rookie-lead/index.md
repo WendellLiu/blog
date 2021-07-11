@@ -9,7 +9,7 @@ keywords: []
 layout: layouts/post.njk
 ---
 
-![Photo by [Štefan Štefančík](https://unsplash.com/photos/UCZF1sXcejo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/leader?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)](/img/1.jpeg)
+![Photo by [Štefan Štefančík](https://unsplash.com/photos/UCZF1sXcejo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/leader?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)](leader.jpeg)
 
 就在昨天，自己團隊底下的最後一位組員正式離職了。除了表示這三、四個月公司內部的事件某些意義上告一段落，也意味著我實質八個月、掛名四個月的Team Lead 正式結束。
 
