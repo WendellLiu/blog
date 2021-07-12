@@ -6,6 +6,8 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
+const now = String(Date.now());
+
 module.exports = function(eleventyConfig) {
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -70,6 +72,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("posts/**/*.png");
   eleventyConfig.addPassthroughCopy("posts/**/*.jpeg");
   eleventyConfig.addPassthroughCopy("posts/**/*.webp");
+
+  // version
+  eleventyConfig.addShortcode("version", function() {
+    return now;
+  });
 
   // Customize Markdown library and settings:
   let markdownLibrary = markdownIt({
