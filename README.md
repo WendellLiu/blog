@@ -20,3 +20,4 @@ npm run serve
 * [ ] image compression
 * [ ] Lighhouse badge in the README
 * [ ] meta and og
+* [ ] inline css

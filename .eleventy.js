@@ -66,10 +66,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
 
   // Scoped Assets
-  eleventyConfig.addPassthroughCopy("**/*.jpg");
-  eleventyConfig.addPassthroughCopy("**/*.png");
-  eleventyConfig.addPassthroughCopy("**/*.jpeg");
-  eleventyConfig.addPassthroughCopy("**/*.webp");
+  eleventyConfig.addPassthroughCopy("posts/**/*.jpg");
+  eleventyConfig.addPassthroughCopy("posts/**/*.png");
+  eleventyConfig.addPassthroughCopy("posts/**/*.jpeg");
+  eleventyConfig.addPassthroughCopy("posts/**/*.webp");
 
   // Customize Markdown library and settings:
   let markdownLibrary = markdownIt({
