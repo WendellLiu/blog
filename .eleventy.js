@@ -6,6 +6,8 @@ const pluginNavigation = require('@11ty/eleventy-navigation')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 
+const pluginInternalImage = require('./plugins/internal-img')
+
 const now = String(Date.now())
 
 module.exports = function (eleventyConfig) {
@@ -13,6 +15,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss)
   eleventyConfig.addPlugin(pluginSyntaxHighlight)
   eleventyConfig.addPlugin(pluginNavigation)
+
+  // internal image plugin
+  eleventyConfig.addPlugin(pluginInternalImage)
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true)
