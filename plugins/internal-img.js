@@ -26,9 +26,13 @@ const processImage = async (img, outputPath) => {
 
   const dimensions = sizeOf('_site/' + src)
 
-  console.info({ dimensions })
-
   if (IGNORE_IMG_TYPE.includes(dimensions.type)) return
+
+  if (!img.getAttribute('width')) {
+    img.setAttribute('width', dimensions.width)
+    img.setAttribute('height', dimensions.height)
+  }
+
   if (img.tagName === 'IMG') {
     img.setAttribute('decoding', 'async')
     img.setAttribute('loading', 'lazy')
@@ -58,6 +62,7 @@ const processImage = async (img, outputPath) => {
 
     img.parentElement.replaceChild(picture, img)
     img.setAttribute('src', fallback)
+    img.classList.add('h-auto', 'max-w-full')
     picture.appendChild(img)
   }
 }

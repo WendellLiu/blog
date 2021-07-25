@@ -5,7 +5,7 @@
   "scripts": {
     "build": "rm -rf _site && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss ./tailwind.css --o _site/css/style.css",
     "watch": "eleventy --watch",
-    "serve": "rm -rf _site && eleventy --serve && postcss ./tailwind.css --o _site/css/style.css --watch",
+    "serve": "rm -rf _site && eleventy --serve & postcss ./tailwind.css --o _site/css/style.css --watch",
     "start": "eleventy --serve",
     "debug": "DEBUG=* eleventy"
   },
