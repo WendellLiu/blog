@@ -30,7 +30,7 @@ async function resize(filename, width, format) {
     await access('_site' + out)
   } catch {
     try {
-      await sharp('_site' + filename, { failOnError: false })
+      await sharp('_site' + filename)
         .resize(width)
         [format]({
           quality: qualityMap[format] || qualityMap.default,
