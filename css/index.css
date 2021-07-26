@@ -21,29 +21,14 @@ body {
   color: var(--darkgray);
   background-color: var(--white);
 }
-p:last-child {
-  margin-bottom: 0;
-}
-p,
-.tmpl-post li {
-  max-width: 37.5em; /* 600px /16 */
-}
-p,
-.tmpl-post li {
-  line-height: 1.45;
-}
+
 a[href] {
   color: var(--blue);
 }
 a[href]:visited {
   color: var(--navy);
 }
-main {
-  padding: 1rem;
-}
-main :first-child {
-  margin-top: 0;
-}
+
 header {
   border-bottom: 1px dashed var(--lightgray);
 }

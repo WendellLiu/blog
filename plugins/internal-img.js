@@ -62,7 +62,6 @@ const processImage = async (img, outputPath) => {
 
     img.parentElement.replaceChild(picture, img)
     img.setAttribute('src', fallback)
-    img.classList.add('h-auto', 'max-w-full')
     picture.appendChild(img)
   }
 }
