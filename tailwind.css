@@ -9,7 +9,7 @@
 }
 
 .tmpl-post > * {
-  @apply mt-8;
+  @apply mt-6 lg:mt-8;
 }
 
 .tmpl-post > p {
@@ -25,7 +25,7 @@
 }
 
 .tmpl-post li {
-  @apply mt-2;
+  @apply mt-4 lg:mt-2;
 }
 
 .tmpl-post > ol {
@@ -41,17 +41,17 @@
 }
 
 h1 {
-  @apply text-3xl;
+  @apply text-4xl;
 }
 
 h2 {
-  @apply text-2xl;
+  @apply text-3xl;
 }
 
 h3 {
-  @apply text-xl;
+  @apply text-2xl;
 }
 
 h4 {
-  @apply text-lg;
+  @apply text-xl;
 }
