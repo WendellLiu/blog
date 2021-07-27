@@ -1,10 +1,14 @@
 <header>
-  <h1 class="home p-4"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-
   {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-  <ul class="nav">
+  <ul class="flex justify-center space-x-8 py-4">
   {%- for entry in collections.all | eleventyNavigation %}
-    <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+    <li class="{% if entry.url == page.url %} underline{% endif %}">
+      <a href="{{ entry.url | url }}" class="text-gray-500 hover:text-gray-900">{{ entry.title }}</a>
+    </li>
   {%- endfor %}
   </ul>
+
+  <div>
+    <h1 class="p-4"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
+  <div>
 </header>
