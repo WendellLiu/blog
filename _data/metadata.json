@@ -1,21 +1,21 @@
 {
-  "title": "Your Blog Name",
-  "url": "https://example.com/",
-  "language": "en",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "title": "With Atman",
+  "url": "https://blog.wendellatman.com/",
+  "language": "zh-tw",
+  "description": "I live and write with atman.",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "I live and write with atman.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://example.com/"
+    "id": "https://blog.wendellatman.com/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
+    "url": "https://blog.wendellatman.com/feed/feed.json"
   },
   "author": {
-    "name": "Your Name Here",
-    "email": "youremailaddress@example.com",
-    "url": "https://example.com/about-me/"
+    "name": "Wendell Liu",
+    "email": "cuk.bas@gmail.com",
+    "url": "https://blog.wendellatman.com/about-me/"
   }
 }
