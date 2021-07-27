@@ -8,14 +8,20 @@
   }
 }
 
-.tmpl-post > * {
+.tmpl-post > h1,
+.tmpl-post > h2,
+.tmpl-post > h3,
+.tmpl-post > h4,
+.tmpl-post > h5,
+.tmpl-post > p,
+.tmpl-post > ul,
+.tmpl-post > ol {
   @apply mt-6 lg:mt-8;
 }
 
 .tmpl-post > p {
   @apply leading-relaxed;
 }
-
 .tmpl-post {
   @apply px-8 lg:px-60;
 }
