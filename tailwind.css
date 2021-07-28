@@ -26,16 +26,18 @@
   @apply px-8 lg:px-60;
 }
 
-.tmpl-post > ul {
-  @apply list-disc list-inside;
-}
+.tmpl-post {
+  > ul {
+    @apply list-disc list-inside;
+  }
 
-.tmpl-post li {
-  @apply mt-4 lg:mt-2;
-}
+  > ol {
+    @apply list-decimal list-inside;
+  }
 
-.tmpl-post > ol {
-  @apply list-decimal list-inside;
+  li {
+    @apply mt-4 lg:mt-2;
+  }
 }
 
 .tmpl-post > img {

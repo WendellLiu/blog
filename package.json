@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "blog created from eleventy-base-blog",
   "scripts": {
-    "build": "rm -rf _site && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss ./tailwind.css --o _site/css/style.css",
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss ./tailwind.css --o _site/css/style.css",
     "watch": "eleventy --watch",
-    "serve": "rm -rf _site && eleventy --serve & postcss ./tailwind.css --o _site/css/style.css --watch",
-    "start": "eleventy --serve",
+    "serve": "eleventy --serve & postcss ./tailwind.css --o _site/css/style.css --watch",
+    "clean": "rm -rf _site",
     "debug": "DEBUG=* eleventy"
   },
   "repository": {
