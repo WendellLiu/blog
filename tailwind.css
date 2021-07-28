@@ -8,6 +8,10 @@
   }
 }
 
+.tmpl-archive {
+  @apply px-8 lg:px-60;
+}
+
 .tmpl-home {
   @apply px-8 lg:px-60;
 

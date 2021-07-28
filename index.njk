@@ -1,7 +1,6 @@
 ---
 layout: layouts/home.njk
 ---
-{% set maxPosts = collections.posts.length | min(3) %}
 <span class="hidden lg:block mb-6 text-lg">Recent Posts</span>
 
 {% set postslist = collections.posts | head(-10) %}
