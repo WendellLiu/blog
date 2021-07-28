@@ -2,7 +2,7 @@
 layout: layouts/home.njk
 ---
 {% set maxPosts = collections.posts.length | min(3) %}
-<span class="block mb-8 text-lg">Recent Posts</span>
+<span class="hidden lg:block mb-6 text-lg">Recent Posts</span>
 
 {% set postslist = collections.posts | head(-10) %}
 {% set postslistCounter = collections.posts | length %}

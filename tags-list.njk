@@ -5,9 +5,11 @@ eleventyNavigation:
   key: Tags
   order: 3
 ---
-<h1>Tags</h1>
+<h1 class="text-2xl mb-4">Tags</h1>
 
-{% for tag in collections.tagList %}
+<div class="post-tag-list">
+  {% for tag in collections.tagList %}
   {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-  <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{% endfor %}
+  <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag }}</a>
+  {% endfor %}
+</div>
