@@ -3,7 +3,7 @@ title: HOC 與RenderProps，談我從她們身上學到什麼
 description: 前言
 date: '2018-12-03T02:36:13.091Z'
 categories: [tech]
-tags: [ReactJS, HOC, aab, bbb, ccc, ddd, eee, fff, ggg, hhh]
+tags: [ReactJS, HOC]
 layout: layouts/post.njk
 ---
 
