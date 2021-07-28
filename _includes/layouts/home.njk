@@ -1,5 +1,15 @@
 ---
-layout: layouts/base.njk
 templateClass: tmpl-home
 ---
+{% extends "layouts/base.njk" %}
+
+{% block content %}
 {{ content | safe }}
+{% endblock %}
+
+{% block prefetch %}
+{%- for post in collections.posts | head(-3) %}
+<link rel="prefetch" href="{{ post.url }}" as="document">
+{%- endfor %}
+{% endblock %}
+

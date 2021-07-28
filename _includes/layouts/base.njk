@@ -20,9 +20,7 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
     <!--prefetch-->
-    {%- for post in collections.posts | head(-3) %}
-    <link rel="prefetch" href="{{ post.url }}" as="document">
-    {%- endfor %}
+    {% block prefetch %}{% endblock %}
     <!--prefetch end-->
     <style>
       {{ css | safe }}
@@ -33,7 +31,9 @@
     {% include "layouts/header.njk" %}
 
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+      {% block content %}
       {{ content | safe }}
+      {% endblock %}
     </main>
 
     <footer></footer>
