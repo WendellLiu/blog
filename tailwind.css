@@ -9,15 +9,15 @@
 }
 
 h1 {
-  @apply text-4xl;
+  @apply text-3xl lg:text-4xl;
 }
 
 h2 {
-  @apply text-3xl;
+  @apply text-2xl lg:text-3xl;
 }
 
 h3 {
-  @apply text-2xl;
+  @apply text-xl lg:text-2xl;
 }
 
 h4 {
@@ -25,7 +25,7 @@ h4 {
 }
 
 .tmpl-post {
-  @apply px-8 lg:px-60;
+  @apply px-8 lg:px-96;
 
   > p {
     @apply leading-relaxed;
