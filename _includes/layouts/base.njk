@@ -20,6 +20,10 @@
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
     <!--prefetch-->
+    <link rel="prefetch" href="{{ '/css/index.css' | url }}" as="style">
+    <link rel="prefetch" href="{{ '/css/style.css' | url }}?v={% version %}" as="style">
+    <link rel="prefetch" href="{{ '/css/prism-base16-monokai.dark.css' | url }}" as="style">
+
     {% block prefetch %}{% endblock %}
     <!--prefetch end-->
     <style>
