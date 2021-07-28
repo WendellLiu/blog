@@ -8,24 +8,28 @@
   }
 }
 
-h1 {
-  @apply text-3xl lg:text-4xl;
-}
+.tmpl-home {
+  @apply px-8 lg:px-60;
 
-h2 {
-  @apply text-2xl lg:text-3xl;
-}
-
-h3 {
-  @apply text-xl lg:text-2xl;
-}
-
-h4 {
-  @apply text-xl;
+  h1 {
+    @apply text-2xl lg:text-3xl;
+  }
 }
 
 .tmpl-post {
-  @apply px-8 lg:px-96;
+  @apply space-y-6 px-8 lg:px-96;
+
+  h2 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
 
   > p {
     @apply leading-relaxed;
@@ -42,17 +46,6 @@ h4 {
     @apply mt-4 lg:mt-2;
   }
 
-  > h1,
-  > h2,
-  > h3,
-  > h4,
-  > h5,
-  > p,
-  > ul,
-  > ol {
-    @apply mt-6 lg:mt-8;
-  }
-
   code {
     @apply bg-gray-200 px-1;
   }
@@ -60,4 +53,12 @@ h4 {
   > img {
     @apply h-auto max-w-full;
   }
+}
+
+.post-tag-list {
+  @apply flex space-x-1 lg:space-x-2;
+}
+
+.post-tag {
+  @apply border border-solid rounded border-gray-400 px-1 text-sm lg:text-base;
 }

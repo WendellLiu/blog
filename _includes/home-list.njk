@@ -1,0 +1,16 @@
+<ol reversed class="space-y-4 lg:space-y-12 divide-y divide-gray-100">
+{% for post in postslist | reverse %}
+  <li class="list-none">
+    <div class="post-tag-list">
+      {% for tag in post.data.tags | filterTagList | head(3) %}
+      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+      <a href="{{ tagUrl | url }}" class="post-tag">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    <a href="{{ post.url | url }}" >
+      <h2 class="my-2 text-xl lg:text-2xl" href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</h2>
+    </a>
+    <time datetime="{{ post.date | htmlDateString }}" class="text-xs lg:text-sm">{{ post.date | readableDate }}</time>
+  </li>
+{% endfor %}
+</ol>

@@ -2,10 +2,8 @@
 layout: layouts/home.njk
 ---
 {% set maxPosts = collections.posts.length | min(3) %}
-<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+<span class="block mb-8 text-lg">Recent Posts</span>
 
-{% set postslist = collections.posts | head(-3) %}
+{% set postslist = collections.posts | head(-10) %}
 {% set postslistCounter = collections.posts | length %}
-{% include "postslist.njk" %}
-
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+{% include "home-list.njk" %}
