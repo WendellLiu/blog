@@ -7,7 +7,7 @@ const config = {
     extend: {
       colors: {
         main: {
-          DEFAULT: '#5DAC81',
+          DEFAULT: '#227D51',
         },
         cwhite: {
           DEFAULT: '#FFFFFB',
