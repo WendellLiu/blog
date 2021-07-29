@@ -1,6 +1,5 @@
 ---
 title: 語言界的Redux？從學習Elm到函數式編程的啟發
-description: 標題是「英國的五月天 — 披頭四」的惡搞哏
 date: '2016-08-18T06:31:27.826Z'
 categories: []
 keywords: []

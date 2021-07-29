@@ -79,6 +79,16 @@ module.exports = function (eleventyConfig) {
     return now
   })
 
+  function extractExcerpt(file, options) {
+    const validContent = file.content.split('\n').filter(str => /^[\w\u4e00-\u9fa5]/.test(str))
+    const excerpt = validContent.slice(0, 3).join(' ')
+    file.excerpt = excerpt
+  }
+
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: extractExcerpt,
+  })
+
   // Customize Markdown library and settings:
   let markdownLibrary = markdownIt({
     html: true,
