@@ -23,7 +23,7 @@ layout: layouts/post.njk
 2.  一些關於React Component常見的測試項目
 3.  其他[鋩角](http://twblg.dict.edu.tw/holodict_new/result_detail.jsp?n_no=11553&curpage=2&sample=kak&radiobutton=1&querytarget=1&limit=20&pagenum=4&rowcount=66)（mê-kak, 俗字為眉角）
 
-### React Component測試
+# React Component測試
 
 以React的架構而言，最小的單位是 **Component**，故為Component寫單元測試是一件非常重要的事。然而由於React Component在未被render的情況下，光就該function是無法有效的測試render後的結果。
 
@@ -43,7 +43,7 @@ Enzyme提供了三種Render的Api讓使用者取得rendered component物件，�
 
 本篇的範例是以最細小單位的component測試為主，因此僅使用 **Shallow Rendering**。
 
-#### 環境以及其他套件
+## 環境以及其他套件
 
 會使用到的測試向套件如下
 
@@ -54,11 +54,11 @@ Enzyme提供了三種Render的Api讓使用者取得rendered component物件，�
 
 實際上要用什麼Testing Framework都是可行的，官方文件也有提供[一些說明](http://airbnb.io/enzyme/docs/guides.html)。
 
-### 測試什麼
+# 測試什麼
 
 這裡記錄一些我自己目前所能想像得到且稍有意義的測試。
 
-#### 本身性質測試
+## 本身性質測試
 
 首先，在我們大致決定React Component的架構後，可以利用_name()_，進行Component本身的node name測試。
 
@@ -100,7 +100,7 @@ it(‘should have className “negative” when number is negative’, () => {
 })
 ```
 
-#### 包含測試
+## 包含測試
 
 React Component是巢狀結構，因此我們可以測試其內所包含的其他component。
 
@@ -193,7 +193,7 @@ it(‘should find three completed li and two active li’, () => {
 })
 ```
 
-#### Event 測試
+## Event 測試
 
 前頭由小至大介紹了component本身的性質測試，再來是針對其中child component的包含測試。接下來則是加入Event的component 測試。
 
@@ -244,9 +244,9 @@ it(‘should modify the fruit list when click button’, () => {
 
 需要注意的是，使用者需要指定其event作用的node（很理所當然，只是別遺漏了）。
 
-### 其他[鋩角](http://twblg.dict.edu.tw/holodict_new/result_detail.jsp?n_no=11553&curpage=2&sample=kak&radiobutton=1&querytarget=1&limit=20&pagenum=4&rowcount=66)
+# 其他[鋩角](http://twblg.dict.edu.tw/holodict_new/result_detail.jsp?n_no=11553&curpage=2&sample=kak&radiobutton=1&querytarget=1&limit=20&pagenum=4&rowcount=66)
 
-#### Class testing in CSS Modules
+## Class testing in CSS Modules
 
 如果有在使用CSS Modules，由於Component的className理應會被加上一些prefix和hash，測試上則需要稍微改寫。其實就是在測試時也使用CSS Modules的概念，不以純字串的方式測試：
 
@@ -289,7 +289,7 @@ hook({
 // package.json
 "test": "mocha --compilers js:babel-register,js:./cssModulesCompiler.js --recursive"
 ```
-#### propTypes
+## propTypes
 
 這裡其實跟React Component render後的測試完全無關，只是我想到或許可以把**有無propTypes**加入測試，以便提醒開發者要記得寫這個**防呆機制**：
 
@@ -299,7 +299,7 @@ it('should have propTypes', () => {
 })
 ```
 
-### 後記
+# 後記
 
 過去對於寫Component測試總感到興趣缺缺，但隨著開發經驗多一些後，發現要說服自己寫測試，首先取決於你（或你的團隊）制定Spec的能力。
 像我對Spec的設計尚未熟練，幾乎Component內容都是隨著開發一直在改變，因此並不想寫這部份的測試，更遑論TDD這樣的開發方式也是有心無力。
@@ -309,6 +309,6 @@ it('should have propTypes', () => {
 
 如果未來更熟練，並且能夠整合一些成果，也希望能寫一篇關於開發前設計component的心得。
 
-#### 參考資料
+# 參考資料
 
 1.  [Enzyme: JavaScript Testing utilities for React](https://medium.com/airbnb-engineering/enzyme-javascript-testing-utilities-for-react-a417e5e5090f#.wu6cdgx6a) (by [AirbnbEng](https://medium.com/@airbnbeng?source=post_header_lockup))

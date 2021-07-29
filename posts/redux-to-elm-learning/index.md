@@ -9,7 +9,7 @@ layout: layouts/post.njk
 
 > 標題是「英國的五月天 — 披頭四」的惡搞哏
 
-### Preface
+# Preface
 
 大概一個月前，稍微碰了[Haskell](https://www.haskell.org/)。沒有特別打算作些什麼，只是單純地為了更瞭解Functional Programming。實際上功效還蠻大的，對於JavaScript乃至Python的編程上，都開了另一片天地。
 
@@ -27,7 +27,7 @@ layout: layouts/post.njk
 
 由於發展不過四年，Elm的社群自然不似JavaScript或其套件們那樣蓬勃。我在網路上或官網中，找到的範例相對精緻（不要一開始就給人家看TodoMVC啦）。所以要是需要真的非常簡單的例子可以參考我自己試玩Elm的[範例github repository](https://github.com/WendellLiu/tryElm)。
 
-### Elm的基礎介紹、開發工具及Elm架構
+# Elm的基礎介紹、開發工具及Elm架構
 
 先從維基百科的介紹開始：
 
@@ -42,7 +42,7 @@ from [http://elm-lang.org/blog/blazing-fast-html](http://elm-lang.org/blog/blazi
 
 由於Elm的重點擺在編寫Web UI，講白了就是要Render Html。官網有上面這張圖，目的是和其他一樣精於此道者的效能比較。這裡也有另一份2014年時作的[效能評測](https://github.com/pygy/todomvc-perf-comparison)，以供參考。
 
-#### 開發工具
+## 開發工具
 
 目前Elm的生態圈裡，有幾個官方工具是需要知道的：
 
@@ -52,7 +52,7 @@ from [http://elm-lang.org/blog/blazing-fast-html](http://elm-lang.org/blog/blazi
 
 方便的是，包括其core和package manager，官方提供的[Installer](http://elm-lang.org/install)就一次攢便便。
 
-#### The Elm Architecture
+## The Elm Architecture
 
 大家有碰過Redux嗎？其優雅且好測試的結構令人十分著迷。實際上，Redux的結構才是受到Elm的啟發，準確地說，是受到Elm先天支援的資料流架構，**The Elm Architecture**所影響。
 
@@ -114,11 +114,11 @@ view model =
 
 大致上來說，Elm原生的開發工具、流程，都算很完整。只要搞懂純粹的函數式語言的編程方式，基礎開發應該問題不大。
 
-### Functional Programming給我的啟發
+# Functional Programming給我的啟發
 
 第二部份會記錄在接觸純函數式語言後，對於我在寫具函數式特性但非純函數式語言，如JavaScript的啟發。因此這段落應該不會再有Elm的程式碼，而會以JavaScript作為範例。
 
-#### Declarative vs. Imperative
+## Declarative vs. Imperative
 
 開頭的介紹即有提到，Elm是屬於Declarative programming language（宣告式語言），或說函數式語言便是屬於宣告式語言的一種。
 
@@ -155,13 +155,13 @@ var result = base
 
 > 宣告式編程是告訴電腦需要計算「什麼」而不是「如何」去計算。
 
-#### Immutable
+## Immutable
 
 在函數式編程中，所有的變數在初始化後都只能被覆寫，而「不可變動」。這意味著在撰寫程式碼時，你能夠很明確的知悉所有變數目前的值，而不會不小心在某個地方，因為副作用改變了變數的值。這能夠帶來安全性的增加以及減少變數值改變的混亂。
 
 Vanilla JavaScript 變數並非是immutable。除了強制的讓變數不可變動外（例如使用immutable.js開發），以獲得上述的好處外，實質上，我們應當將其視為一種pattern。讓自己在寫程式時盡可能不去更動變數，尤其在不同scope間，盡可能不要寫下有副作用的程式碼。
 
-#### Function is Simple
+## Function is Simple
 
 在JavaScript中，儘管function是第一級公民（First Class Citizen）。然而可能因為過去的編程習慣，function並不被強調，因此我們往往低估了function的彈性（而高估class）。而在函數式編程，「函數」自然是最重要的核心。藉由許多pattern，如currying、closure等，讓函數就能達到我們的各式需求，並且有許多好處。
 
@@ -203,7 +203,7 @@ appendForNode2(some)
 
 > 函數式編程本身還有許多優點，而我這部份僅是以如何讓混合式（Hybrid）語言的撰寫上，從指令式語言的習慣作一些有意義的改善。若要強調函數式和物件導向的差異，可以參考[這篇](https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53#.h11qb3tpn)（謝謝碼天狗的推薦）。
 
-### 後記
+# 後記
 
 事實上，一開始我只覺得用一個純函數式語言寫web UI根本是在惡搞人，但在習慣後確實能夠寫得很簡捷（當然也托The Elm Architecture的福）。
 

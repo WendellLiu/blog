@@ -9,7 +9,7 @@ layout: layouts/post.njk
 
 ![Focus on your tools (Photo by [Fleur Treurniet](https://unsplash.com/photos/dQf7RZhMOJU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/tools?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText))](./tools.jpeg)
 
-### 前言
+# 前言
 
 這陣子同事在討論HOC 與Render Props ，令我想起年初時閱讀了陳榮華老師的 _《海德格 〈存有與時間〉闡釋》_。其中海德格將周遭之物分為及手之物（Ready-to-hand）以及手前之物（Present-at-hand），用以區別面對他者的態度。前者視他者為工具，以使用作為其接觸的方式；後者則是將他者置於眼前，突兀地研究其原理、內涵。
 
@@ -29,11 +29,11 @@ layout: layouts/post.njk
 *   優劣的比較
 *   效能向的建議
 
-### Code Reuse
+# Code Reuse
 
 程式碼的再利用一向是所有工程師所關注的問題，有效的再利用能夠減少程式碼的數量，並且讓可維護性提高。也因此，無論在何種領域的軟體社群中，提出程式碼再利用的模式是極常見的。React 社群自然不落人後。
 
-#### Mixins
+## Mixins
 
 在利用 `React.createClass` 創建一個component 的古早時期，開發者多半僅能憑藉 mixin  來做到功能上的組合。範例如下，概念上是property merging 。因此當不同mixin 的property name 衝突時，會獲得警告一支，也就體現了其限制。更多資訊可參考 [Mixins Considered Harmful](https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html) 這篇文章。
 
@@ -62,7 +62,7 @@ var H1Component = React.createClass({
 });
 ```
 
-#### Classes
+## Classes
 
 接下來的前端圈開始了大ES6 時代，亦稱2015 年所批准ECMAScript standard 。此一版本中讓javascript 開始可使用class 這個保留字作為prototype-based object的創建語法糖。讓深受OOP 影響（荼毒）的一眾能夠在javascript 實現熟悉最對味的繼承、創建子、實例等模式。詳細的介紹請參考這份[Babel 文件](https://babeljs.io/docs/en/learn/#classes)。
 
@@ -76,9 +76,9 @@ Extend Custom Class Component
 
 好的，讓我們進入正題吧，談談現今常被提出的兩種Code Reuse Pattern。
 
-### 所謂現代的Code Reuse in React
+# 所謂現代的Code Reuse in React
 
-#### HOC(Higher-Order Component)
+## HOC(Higher-Order Component)
 
 本篇不是什麼硬底子文章，所以我們直接看code 吧。
 
@@ -122,7 +122,7 @@ const App = hoc(Page);
 
 最經典的HOC 第三方套件是[Recompose](https://github.com/acdlite/recompose) ，裡頭有許多HOC 以及HOC Utilities ，例如將React Component 的state 創建與lifecycle 都包裹成HOC ，運用得宜，程式碼幾乎剩下HOC 與純UI 的Functional Component。不過隨著前陣子React Hooks 的問世，本人也在React Team 的原作者也[宣布會停止積極維護Recompose](https://github.com/acdlite/recompose#a-note-from-the-author-acdlite-oct-25-2018) 。
 
-#### Render Props
+## Render Props
 
 Render Props 並不是一門新的技術，甚至不能算是一種新的模式，原因先看完以下的範例碼再行說明。
 
@@ -143,17 +143,17 @@ Render Props 的範例中，可以發現，這幾乎就是children 的使用方�
 
 除了第三方套件的應用外，React Core 本身在新版的Context API 也巧妙地運用了Render Props 。新版的Context API 中，開發者必須先利用 `React.createContext` 創建出兩個實例，分別為Provider 與Consumer 。Provider 的功用是提供context value ，而Consumer 顧名思義是讓開發者**使用**context value 。其中Consumer 的使用上，開發者必須以 `ContextValue -> ReactElement` 這樣的Render Props Function 來承接context value 。
 
-### 殊途同歸
+# 殊途同歸
 
 除了這幾年提及函數二字就會顯得很潮以外，在以上的內容中，函數這個詞不斷地出現，乃因無論是HOC 或是Render Props ，此二模式基本是建立於單一個十足簡單的函數之上，並沒有什麼魔法。所謂簡單的定義是隨人而定，本文想表達的簡單，乃是以**「開發者多有可能寫出最簡單的程式碼，以達到目的」**的標準下的簡單。換言之，開發者不需熟記各式特定API ，甚至不需要了解複雜的繼承系統（或說extends ，亦或説prototype），這是本文所謂的簡單。
 
 在此基礎下，我認為HOC 與Render Props 是殊途同歸的，也就是**更多元的函數利用**。
 
-### 如何看待
+# 如何看待
 
 一如本文開頭時所說，在使用上，HOC 與Render Props 是殊途同歸的，開發者僅需熟知接口的位置以及使用的範本，並且傳入富含商業邏輯或UI 的函數即可。然而，我打算閒閒無代誌，以我自己的使用方式作為研究對象，將這兩者托於手上端詳，探尋可能無用的觀點。
 
-#### HOC
+## HOC
 
 首先，HOC 本質就是Functional Programming 裡必提及的HOF（High-Order Function）。這裡給一個HOF 的範例碼，complexMath 會接收一個filter function ，並且再接收一個整數，最後以filter function 篩選每一位的數字，並且重新組成新的整數。呃，我知道flow 的primitive types 建立在javascript 之上所以沒有`Nat` （自然數），但我懶得處理負數與小數點，所以就讓我偷懶限制在自然數吧 😏 。範例碼如下：
 
@@ -176,7 +176,7 @@ expect(fn(6125499)).to.equal(699) // pass!
 
 以我自己的使用習慣，由於HOC 本身即為一函數，因此極合適於建造處理資料的pipe line ，將每一個資料的組合、計算合理地切分在每一個HOC 。再藉由compose 函數，讓開發者不需要參雜UI 邏輯，組合成純純正正、正正當當的一條資料向的管線。而位於管線最下游的React Component ，僅需專注於描述**依據props 所應當呈現的View** 即可。
 
-#### Render Props
+## Render Props
 
 上頭HOC 的內容提到，React 所做的事可以**F(state) = UI** 概括，而Render Props 在這裡則是一個**動態**的state ，我喜歡用 **「function in config」** 來代表她的角色。Render Props 有效地讓開發者在開發過程中獨立出Parent Component 處理資料以及產生UI 的邏輯。而換句話說也就是讓各類處理資料、side effect 的Component 可更簡潔地被再利用。
 
@@ -184,7 +184,7 @@ expect(fn(6125499)).to.equal(699) // pass!
 
 另外，由於Render Props Function 在執行完後是很直白地回傳一組React Element 。因此相較於HOC，Render Props 並不會導致vDOM tree多一層，雖然function call stack 並沒有隨之減少，但減少vDOM tree的高度於對React Core 的處理是有利無害的。
 
-### 結
+# 結
 
 總結本文的內容：
 
@@ -197,14 +197,14 @@ expect(fn(6125499)).to.equal(699) // pass!
 
 > Man cannot be free if he does not know that he is subject to necessity, because his freedom is always won in his never wholly successful attempts to liberate himself from necessity. (The Human Condition)
 
-### 🐝工商🐝
+# 🐝工商🐝
 
 [**honestbee career - _Join our big exciting family_**
 Join our big exciting familycareers.honestbee.com](https://careers.honestbee.com/ "https://careers.honestbee.com/")[](https://careers.honestbee.com/)
 
 honestbee 🐝正在招募前端工程師，也就是我的同事。若你讀到這，也感到有興趣，歡迎參考這個[連結](https://careers.honestbee.com/departments/job/?gh_jid=1431558) ，或是來信 [cuk.bas@gmail.com](mailto:cuk.bas@gmail.com) 我可以幫忙轉介。
 
-### 備註與其他參考
+# 備註與其他參考
 
 *   \*1 簡單說來，Element 是一個Plain Object ，描述著使用哪些Component ，以及其參數（props），也就是開發者寫成JSX 形式所會被編譯出的樣子；而Component 則是一個以資料為進、UI 為出的函數。
 *   Mixins Are Dead. Long Live Composition([Dan Abramov](https://medium.com/@dan_abramov?source=post_header_lockup)) — [https://medium.com/@dan\_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750)

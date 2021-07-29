@@ -20,13 +20,13 @@ Web Accessibility，在漢文世界，有人稱之為「網頁可訪性」，也
 
 網頁可訪性是指讓身心障礙者能夠使用該網頁服務的程度，亦即身心障礙者**多_容易_**使用你的服務。所有身心障礙者中，就網頁服務，視障者（包含視野有限、弱視、全盲以及色盲等）是最被聚焦的族群，因此多數Web Accessibility 的討論都會以視障者的角度為優先，而本篇內容也多琢磨於視障者。
 
-### tl;dr
+# tl;dr
 
 1.  不要想著使用者缺乏什麼，想著使用者以什麼方式造訪
 2.  使用html5 語意化標籤，或使用 `role` 、 `aria-*`
 3.  思考Web Accessibility 也是重新思考UI 元件的方式
 
-### 為什麼我
+# 為什麼我
 
 我是一個前端工程師，職責是讓系統、設計師與使用者三方有更緊密的連結。從最基礎的功能性介面開始，一直到更友善、美觀的進階設計。對於進階的設計，HTML、CSS 原生能支援的程度有限，故前端工程師時常會使用各種奇技淫巧實作元件。
 
@@ -36,13 +36,13 @@ Web Accessibility，在漢文世界，有人稱之為「網頁可訪性」，也
 
 > “The principles of justice are chosen behind a veil of ignorance.” — John Rawls
 
-### 正題
+# 正題
 
 接下來我會先介紹最常見並且與本篇相關的輔具，接下來便依循[ud891](https://classroom.udacity.com/courses/ud891) 的順序，由Focus、Semantic HTML、Navigating Content、ARIA 、Styles ，分為五個項目撰寫。
 
 正式進入上述內容前，Web Accessibility 的思考上，我建議大家，與其想著訪客缺少什麼，例如失去完整視力、手部操作能力等，或許不妨往訪客是以 **_何種形式造訪_** 我們的服務，可更容易察覺網站的不足之處。例如視障者可被純化為「鍵盤使用者」、「聽覺使用者」，而手部操作能力缺乏者，則通常屬於「聲控使用者」、「純手指使用者」，以這些作為思考的進入點。
 
-#### Assistive Technology
+## Assistive Technology
 
 操作一個網頁時，最廣泛使用的輔具為Screen Reader 以及Keyboard。
 
@@ -50,7 +50,7 @@ Screen Reader 為螢幕閱讀器，功能是將文字、圖片及軟體介面以
 
 另一個輔具則是Keyboard ，對的，就是指螢幕前的那盤。由於滑鼠是一種講求高度手眼協調的工具，對於視障者並不是非常友善。因此就視障者的使用，除輸入的功能外，鍵盤還扮演著指引操作的角色。
 
-#### Focus
+## Focus
 
 Focus 是指在瀏覽器上，代表此刻瀏覽器聚焦在哪個元件的狀態，藉由此狀態，讓使用者知道此刻正在操作的元件，開發者亦常利用Focus 引導使用者的目光。
 
@@ -64,7 +64,7 @@ Focus 是指在瀏覽器上，代表此刻瀏覽器聚焦在哪個元件的狀�
 
 最後一個需要注意的開發要點，必須避免產生Key Trap ，也就是不要讓使用者在切換Focus 點時，卡在一個範圍無法脫逃，這會造成使用者繼續使用的困難。然而也是有個例外是Modal ，建議上反而希望開發者能讓Modal 開啟時，製造一個Key Trap 於Modal 的內部範圍，讓鍵盤使用者不會進入不相干的元件進而產生混肴。
 
-#### Semantic HTML
+## Semantic HTML
 
 HTML 是一個敘述網頁內容的標示性語言，其完整呈現網頁的外觀。然而為了彈性以及方便，HTML 本身的限制與瀏覽器對HTML 解析的方式，都具高度的寬容性。HTML Tag 的使用通常是沒有侷限的，所以會出現「一個div 打天下」的現象。此模式對於視覺正常的使用者是沒有差異的，然而對於仰賴Screen Reader 的使用者則相當不友善。Semantic HTML （語意化的HTML）就是為了讓元件準確地被Screen Reader 解析。
 
@@ -85,7 +85,7 @@ HTML 是一個敘述網頁內容的標示性語言，其完整呈現網頁的外
 
 關於Screen Reader 朗讀資訊的方式、效果可以參考ud891 所提供的[範例](http://udacity.github.io/ud891/lesson3-semantics-built-in/16-labelling-input-elements/solution2/index.html) 或使用Chrome 安裝擴充套件[ChromeVox](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=zh-TW) ，若你使用Mac ，也可直接開啟VoiceOver 。經過親身體驗後，相信開發者應更能體會，若使用者只接收到少量元件資訊，或冗贅資訊的不便利。
 
-#### Navigating Content
+## Navigating Content
 
 除了使用鍵盤前後地巡迴元件，Screen Reader 也提供集結（aggregate）的功能，讓使用者更容易在網頁上穿梭。
 
@@ -101,7 +101,7 @@ HTML 是一個敘述網頁內容的標示性語言，其完整呈現網頁的外
 
 順道一提，與輔具無關，使用 `<a>` 的寫法也才可讓使用者自由選擇開啟頁面的方式（如chrome in Mac OS的cmd + mouse click 是分頁），這也是個更友善的改進。
 
-#### ARIA
+## ARIA
 
 ARIA 更完整寫為WAI-ARIA ，全稱是 **_Web Accessibility Initiative — Accessibility Rich Internet Applications_** **_（網頁可訪性倡議 — 無障礙網頁應用）_**。
 
@@ -149,7 +149,7 @@ ARIA 更完整寫為WAI-ARIA ，全稱是 **_Web Accessibility Initiative —�
 
 ARIA 讓所以元件都有機會成為無障礙元件，開發時可先從 `role` 的取用開始思考，再來補足規範上必要的 `aria-*` ，會是較有效率的開發流程。
 
-#### Styles
+## Styles
 
 元件的視覺樣式也是影響頁面Web Accessibility 的因素，主要針對的是色彩辨識能力缺乏者。
 
@@ -159,7 +159,7 @@ ARIA 讓所以元件都有機會成為無障礙元件，開發時可先從 `role
 
 過低的顏色對比會影響色弱者對網頁的閱讀順暢度，而造訪者也可能是色盲，因此，也需要注意的是盡可能不要讓網頁資訊僅由**「顏色」**表現。例如表單的驗證，最常見的設計是使用紅色的文字或邊框提醒使用者，該欄位不合法，而更精進的設計方式是在顏色以外，也加上文字訊息，讓色盲者亦能知悉已填寫的欄位有不合法的情形，甚至佐以 `aria-*` 提供視力不全者更直接的提示。
 
-### 之後呢
+# 之後呢
 
 除了以上傳統定義的無障礙規範，我認為可能也是關於Web Accessibility 的關鍵字有國際化與在地化（i18n） 、 響應式設計（RWD） 、 漸進式網頁應用程式（PWA）。在一些情境下，這三者都會導致使用者 **_完全無法_** 使用服務，例如語言不通、小螢幕裝置或效能較低階的硬體設備，因此在設計產品時也應當將這三點納為計畫。
 

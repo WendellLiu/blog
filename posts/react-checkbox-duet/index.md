@@ -16,7 +16,7 @@ Freddie Mercury and David Bowie — Under Pressure
 
 簡而言之是一個React化的Checkbox，本篇是希望能夠寫一些和其他類似專案的比較和他們帶來的啟發。
 
-#### 巨人們的肩膀
+# 巨人們的肩膀
 
 事情的起源是，在製作另一個待完成應用中的表單時，用到了幾種input，text、radio、checkbox等等。既然是使用React了，若有已經包裝好的component直接引用是十分合理的。不過在github上找尋checkbox的資源時，發現有一些不太合用，或說，可以再更直觀一點。
 
@@ -42,13 +42,13 @@ Freddie Mercury and David Bowie — Under Pressure
 *   多選的情境下，能夠獲得被選取項目的array：
     與上一點雷同，絕對可以自己在外層加點工（例如onChange），來達到如同[ziad-saab/react-checkbox-group](https://github.com/ziad-saab/react-checkbox-group)的效果。但就是覺得如果能整合大家的優點那就太好了
 
-#### 結果
+# 結果
 
 最後就形成了[React Checkbox Duet](http://ziad-saab/react-checkbox-group)，結構上受啟發於[chenglou/react-radio-group](https://github.com/chenglou/react-radio-group)，也是以_<CheckboxGroup />_包裹_<Checkbox />_來使用。並且也可以單用_<Checkbox />_來作到二元選擇的效果，但目前必須將Checkbox的isGroup屬性設為false，才能有正確的二元效果（差別可參見下一段）。這部份尚有點麻煩，再想想是否能避掉這個步驟直接讓元件判斷是哪種使用。
 
 如同上面的目標，如果是多選情境，帶入的_onChange_所接應的參數會是一個array，裡頭是**已勾選的項目**名稱（以input **value**為準）。若是二元的情境，_onChange_的是接應目前input checked的**反面布林值**。
 
-#### 題外話
+# 題外話
 
 命名果然是一件困難的事情，原本是想取作two-face，也就是美漫的雙面人。不過因為一來這個專案的兩個面並不是對立或相反；二來總覺得命名為react-checkbox-two-face好像有點太冗長，哈。
 

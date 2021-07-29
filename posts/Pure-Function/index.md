@@ -20,7 +20,7 @@ Eiskristalle
 *   Pure Function 對開發有什麼益處
 *   Pure Function 與React、Redux
 
-### Pure Function 是什麼
+# Pure Function 是什麼
 
 Pure Function 的定義十分簡單（所以更適合其字面語意）：
 
@@ -56,9 +56,9 @@ const result = math(2)(4) // 14
 
 小結，Pure Function 就是一個誰找他他就回一樣的話，他作的事情不受人影響，也不影響任何人。套個行話，Pure Function就是個_邊緣人_。
 
-### Pure Function 對開發有什麼益處
+# Pure Function 對開發有什麼益處
 
-#### 有利重構（Refactor）
+## 有利重構（Refactor）
 
 由於Pure Function 同輸入同輸出的特性，讓它具備高 **可預測性**，這對於重構你的程式碼是十分有利的。在開發過程中，由於各種可或不可抗拒的因素，可能會求快而先寫出一個版本的程式碼，接下來或許會排時間進行重構來達到穩定性、可擴充性等更高品質的水準。
 
@@ -66,13 +66,13 @@ const result = math(2)(4) // 14
 
 反之若函數是個Impure Function，除了理解這個函數變不容易外，更可怕的是改動他可能會影響到其他地方；讓重構需要經過更長遠的計畫、花更多的時間，才能夠進行重構。如此一來，快速開發所產生的債則會多上許多倍。
 
-#### 方便測試
+## 方便測試
 
 上一段提到了Pure Function 的高可預測性，事實上這點就已經滿足 **方便測試**的條件。一個容易預測的函數，會很容易想到Test Case ，以及對應的actual value 與expect value 。
 
 然而Pure Function 的高測試性不僅限於此。由於Pure Function 不受到其他作用域影響，只有輸入值才會導致結果的改變。換句話說，我們將不必再費心去準備許多環境就能做到測試的目的。在同一段測試區塊中，也大幅減少事後還原的動作。
 
-#### 易與其他函數組合（Compose）
+## 易與其他函數組合（Compose）
 
 在Functional Programming 中，有一個運用數學上結合律（associative laws）的組合技巧（function compose）。
 
@@ -114,13 +114,13 @@ iex> "Hello World"
 
 強化Pure Function 概念的一大好處是讓開發者更能夠不拘束地使用 **函數組合**的技巧。
 
-#### 並行運作
+## 並行運作
 
 在開多個執行緒來讓程式碼並行運作時，有一個可能會遇見的問題是Race Condition 。產生Race Condition 的其中一個可能，發生於某a 執行緒改變了某一項外在條件，導致b 甚至更多執行緒的結果不合預期，甚至發生錯誤。
 
 由於Pure Function 不產生副作用也不受到外在影響的特性，不必擔心各個執行緒會影響他者運行的結果。我們能夠輕易地讓Pure Function 並行運作，不必擔憂產生Race Condition 的情況。
 
-#### 利於建快取（Cache）
+## 利於建快取（Cache）
 
 Pure Function 的結果只取決於傳進的Parameter ，因此若結合閉包（closure）的作法，能夠妥善建立快取機制。判斷Parameter 是否是已經給進過的，若是則提取快取中的值，反之則加入快取並重新計算一個數值回傳。範例如下：
 
@@ -139,21 +139,21 @@ function cacheMath(n){
 
 可想而知的是，若回傳值除了受到n 亦會受到其他因素影響，由於回傳值的可預測性降低了，我們將無法有效的建立該快取制度。
 
-#### 專注於特定情境（Context）
+## 專注於特定情境（Context）
 
 最後這一點就相對開發時的心態。在理解Pure Function後，抱持著每個函數都盡可能達成其概念前提，這有助於開發者專注於各個情境。畢竟，真的很難在含有多個目的、情境的前提下，還能夠滿足Pure Function 的條件。
 
 而這樣的專注能讓開發者較為不易陷入一個需求所導致的過度複雜思考，在起始時分離需求成不同目標，將目標轉換為不同的小函數，一一擊破。feature 一二三，寫code 多簡單。
 
-### 與React、Redux 共舞
+# 與React、Redux 共舞
 
 作為一個前端工程師，並且是React-Redux 開發為主的前端工程師，隨身攜帶一本Pure Function 指南也屬正常。底下會以一個React-Redux 架構開發者的角度，有什麼地方是與Pure Function 可以扯著寫成一段的。
 
-#### React Component
+## React Component
 
 如果不提萬惡的react context ，React Component 本身就是一個Pure Function 。Component 在概念上，呈現結果僅根據外在給的 `props` 以及 內部情境的 `state` 。當然這僅存於概念，你要在內部寫下多少Impure Function 來影響這個美麗的成果都是可以辦得到的。但React 各大介紹文中念茲在茲的 `view = f(x)` 想表述的概念其中有一應該就是Pure Function。
 
-#### Redux Reducer
+## Redux Reducer
 
 Redux 的架構是參考於 **The Elm Architecture** （可以參考拙作 —[ 語言界的Redux？從學習Elm到函數式編程的啟發](https://medium.com/@WendellLiu/%E8%AA%9E%E8%A8%80%E7%95%8C%E7%9A%84redux-%E5%BE%9E%E5%AD%B8%E7%BF%92elm%E5%88%B0%E5%87%BD%E6%95%B8%E5%BC%8F%E7%B7%A8%E7%A8%8B%E7%9A%84%E5%95%9F%E7%99%BC-9d24775500a2)）。而Elm 作為一個Functional Programming Language ，自然沒在架構中放過Pure Function 。
 
@@ -176,7 +176,7 @@ const CounterReducer = (state, action) => {
 
 接下來Redux core 再將State 整個替換成Reducer 的回傳值，以更新Store 。
 
-#### setState(object) -> setState(function)
+## setState(object) -> setState(function)
 
 沒看到[Functional setState is the future of React](https://medium.freecodecamp.com/functional-setstate-is-the-future-of-react-374f30401b6b) 這篇文章前，還真的不知道原來React Component 的**setState** 除了能夠接受物件外，也能接受函數。這個函數是 `(state, props) => { doSomething() }` 的型態。
 
@@ -186,7 +186,7 @@ const CounterReducer = (state, action) => {
 
 另外，在react-future 中，也有一篇是延續此概念，且又更加擴充的 [Stateful Function](https://github.com/reactjs/react-future/blob/master/07%20-%20Returning%20State/01%20-%20Stateful%20Functions.js) 。不得不說，真的永遠看不到Facebook 工程師的車尾燈。
 
-#### Selector
+## Selector
 
 React 與 Redux 的結合中，有一個重要的接口是 `react-redux` 所提供的 `connect` 。這讓React Component 能夠與Redux Store 串接。而通常會建議，把 **取得Store 值的模式寫成函數**，以代入`mapStateToProps` 。此函數就是**Selector** 。
 
@@ -198,7 +198,7 @@ Selector 該是一個Pure Function，否則如何能確保獲得的state 正確�
 
 看過原始碼後會發現， `createSelector` 確實實作了一套簡易的cache 機制，進而加速渲染的效率。這也是上方有提及Pure Function 其中一個優勢。
 
-### 總結
+# 總結
 
 Pure Function 是一個簡單但能夠帶來益處的概念，儘管在Functional Programming 特別強調，但我相信不僅限於FP 會需要。
 

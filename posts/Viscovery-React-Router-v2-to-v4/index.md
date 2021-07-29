@@ -25,7 +25,7 @@ What Do We Want
 *   需要注意什麼
 *   總結
 
-### 歷史
+# 歷史
 
 在React Router v4 的文件中有個段落在談[過去的版本與v4 有何不同](https://reacttraining.com/react-router/core/guides/philosophy/backstory)。引用其中一段：
 
@@ -35,9 +35,9 @@ What Do We Want
 
 v2 開始，團隊自行實作一個抽離React Component 的Api 介面，而這讓路由邏輯難以與UI Component 作複雜的配合。這次的v4，讓 `<Route>`回歸React Component 的型態，留給使用者更多的彈性及空間。
 
-### React Router v4 與以往有何不同
+# React Router v4 與以往有何不同
 
-#### Everything is React Component
+## Everything is React Component
 
 > 讓 `<Route>`回歸React Component 的型態，留給使用者更多的彈性及空間。
 
@@ -61,7 +61,7 @@ Flow Chart in v4
 
 對於v4 ， `<Route>` 中的Component 不再經過處理，尤其是不再有React Router 本身的Lifecycle(onEnter、onChange、onLeave）。
 
-#### Injected Props
+## Injected Props
 
 過去Route Component 會連帶被夾帶幾組固定的Props，是為 **Injected Props** 。v4 在此做了兩項更動：
 
@@ -81,7 +81,7 @@ const route = {
 }
 ```
 
-#### Plain Route(via [react-router-config](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config))
+## Plain Route(via [react-router-config](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config))
 
 在v4 以前的版本，開發者可以使用jsx 的形式編寫route 的內容，亦能夠使用javascript object 的形式，文件中這樣的型態被稱為plain route。
 
@@ -185,13 +185,13 @@ ReactDOM.render(
 ```
 
 
-#### Implement `onEnter` , `onChange` , `onLeave` Yourself
+## Implement `onEnter` , `onChange` , `onLeave` Yourself
 
 誠如 **Back Story** 所言，v4 以降，不再是以React Router 所包裹的介面讓開發者實作router ，因此也不再提供`onEnter` 、 `onChange` 、 `onLeave`這三個react route lifecycle hook。開發者將必須以React Component Lifecycle 的概念重新實作原本React Router 提供的`onEnter` 、 `onChange` 、 `onLeave` 。
 
 `onChange` 與 `onLeave` 是相對容易重新實作的，以 `componentWillReceiveProps` 、`componentWillUnmount` 一對一對應。開發者需要費心的是 `onEnter` ，儘管與 `componentWillMount` 接近，但仍需要在 `componentWillReceiveProps` 也作出對應的行為（另加上些判斷），才能無縫接軌，細節可以參考這則官方repo 的[issue](https://github.com/ReactTraining/react-router/issues/3854) 。
 
-#### <Route>
+## <Route>
 
 React Router 最核心的 `<Route>` 介面在v4 的改版也有些許改變。
 
@@ -223,7 +223,7 @@ React Router 最核心的 `<Route>` 介面在v4 的改版也有些許改變。
 
 簡而言之，在傳統的路由配對行為上，沒有配對到的，是完全不render 。然而你可能會需要在此之上包裹必定渲染的component ，來達到需求。
 
-#### <Switch>
+## <Switch>
 
 當同階層有複數個routes 時，React Router v4 並不會自動依序採用第一個對應到的route ，而是很_質樸_地每一個route 都會mount 。因此要做到過去版本自動對應，必須在 `<Route>` 之外加上 `<Switch>` （更貼近javascript switch Statement）。
 
@@ -243,7 +243,7 @@ React Router 最核心的 `<Route>` 介面在v4 的改版也有些許改變。
 </Route>
 ```
 
-#### No More `<IndexRoute>`
+## No More `<IndexRoute>`
 
 本次的更新，React Router 拿掉了 `<IndexRoute>` 。由於概念上，父層的 `<Route>` 所對應的component 不再是扮演 template 的角色，並且 `path`也不以相對路徑來定義，因此：
 
@@ -265,7 +265,7 @@ React Router 最核心的 `<Route>` 介面在v4 的改版也有些許改變。
 </Route>
 ```
 
-#### Named Component
+## Named Component
 
 過去的版本中， `<Route>` 的 `components` 除了可以帶入component 外，也能帶入一個value 為component 的object 。使用的目的是讓Parent Route 對應的component 不只能用 `prop.children` 來決定child component 的render 方式，而能以 `prop[keyName]` 來選取複數個child component，並且分別佈局，提升開發彈性。
 
@@ -301,25 +301,25 @@ const AppRoute = () => (
 )
 ```
 
-### 需要注意什麼
+# 需要注意什麼
 
-#### 程式碼分離
+## 程式碼分離
 
 將 `<Route>` 徹底視為一個React Component ，很有可能讓開發者的程式碼分離變得不容易。可能會不小心將 **排版**、 **路由**的邏輯混寫在一起，在Route 中引用Component ，反之亦然。尤其是稍微複雜的運用，例如上一個段落的Named Component 的範例，並不是簡易的一個children rendering 。利用HOC 來分別出**排版**、**路由**的Component 是一個很適當的作法。
 
-#### [React Router Redux](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux)
+## [React Router Redux](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux)
 
 目前React Router Redux 是由React Core Team [維護](https://github.com/reactjs/react-router-redux)，不過實際上已經[移轉](https://github.com/reactjs/react-router-redux#were-moving)予[ReactTraining](https://github.com/ReactTraining) ，也就是React Router 的開發團隊。只是穩定版（React Router Redux v4.x）仍是React Core Team 所開發，又這個版本仍支援React Router v2, v3。
 
 在下一版（React Router Redux v5）則會正式移轉，同時不支援React Router v4 以下的版本，屆時React-Redux 架構的專案則將必須升級React Router **（希望到時這篇文章流量會增加）**。
 
-### 總結
+# 總結
 
 此次改版可用 **返璞歸真**概括。專案中不再同時具有兩種介面、Lifecycle ，讓開發者能夠有一致的開發邏輯。此變動除了降低使用門檻，也讓使用者、第三方套件開發者更合理的增添功能。
 
 特別感謝 [Amdis Liu](https://www.linkedin.com/in/amdis-liu-50b66a42)、[dreamcwli](https://tw.linkedin.com/in/dreamcwli) 提供文章所需的資訊、範例碼以及審閱。
 
-#### 參考資料
+# 參考資料
 
 *   官方文件
 *   [React Router v4 Unofficial Migration Guide](https://codeburst.io/react-router-v4-unofficial-migration-guide-5a370b8905a)

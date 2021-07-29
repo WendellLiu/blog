@@ -9,7 +9,7 @@ layout: layouts/post.njk
 
 _聲明：本篇文章_**_摘要_**_自_[_Promises: All The Wrong Ways_](https://blog.getify.com/promises-wrong-ways/)
 
-#### 錯誤的開始
+# 錯誤的開始
 
 假設個情境：當你從其他函式庫引用_foo()_時，而回傳一個promise，問題來了，要如何肯定你使用的promise是你所想的那個promise嗎？例如開發者在先前使用了[Bluebird promises](https://github.com/petkaantonov/bluebird)(或其他promise-like api)，但此時引用的_foo()_所回傳的promise呢？
 
@@ -41,7 +41,7 @@ Promise.resolve(foo())
 
 例如這個範例，若你是要連鎖使用不同種類的promise，只需要把promise放在_then(..)_使用，也會有相同的效果。現在儘管_foo(..)_和_bar(..)_是由不同的promise api產生，經過這個作法便達到標準化的效果。
 
-#### 起步延遲
+# 起步延遲
 
 文章中提到在promise chain的起始部份，很可能出現的錯誤用法，其中之一：
 
@@ -76,7 +76,7 @@ new Promise( function(resolve, reject){
 
 這個寫法的警告我似乎在其他地方也有看到，就不是要使用巢狀(nested)的promise結構組合不同的promise，會讓程式碼變得可讀性差，以及缺乏一致性，進而難以維護。
 
-#### 開始時出現錯誤
+# 開始時出現錯誤
 
 文章中提到了如果你引用的promise f_irstStep()_的可能運行結果是一個同步例外(synchronous exception)而非rejected promise，那該如何以promise的概念作非同步處置呢？
 
@@ -100,7 +100,7 @@ p.then( .. )
 
 不過和上面的寫法有點不同的是，如果你希望你的的程式碼中的promise都是某一種promise api所產生的promise(例如上面提過得Bluebird Promise)，由於使用async function會回傳一個原生(native)的promise，因此必須要再以該promise api的promise.resolve(或其他相同效果的api)轉換。
 
-#### Promise 副作用
+# Promise 副作用
 
 近年很火紅的函數式編程(Functional Programming, FP)，概念上希望函數能夠越純粹越好，也就是沒有副作用(side-effects)。然而在運用promise時我們很容易寫出有side-effect的程式碼。
 
@@ -207,7 +207,7 @@ function getOrderDetails(orderID) {
 
 儘管第二個巢狀式promise使用也並不被推薦，作者仍然認為比起side-effect function他還更能接受nesting function。
 
-#### Promise鏈
+# Promise鏈
 
 直接破題，作者認為promise鏈適合用在「在與時機無關的前提下，處理未來的值」，但他十分不建議使用promise的_then(..)_作為非同步流程控制(async flow control)管理。範例如下：
 
@@ -268,7 +268,7 @@ async function main() {
 
 無論是哪個實踐都算是容易懂，我們能夠同樣達到非同步流程控制，並且讓程式碼更好維護。我自己是認為簡易地使用promise的_then(..)_並不至於太可怕，但相對的是缺乏彈性。如果要在每個流程之中或之間作處理，便顯得不容易（由於promise單一數值傳遞的特性），硬要作又可能寫出具side-effect的函數。
 
-### 總結
+# 總結
 
 1.  使用任何你希望統一使用的promise api中的_Promise.resolve(..)_來標準化你所引用的不同來源promise
 2.  直接把第一個函數放在_Promise.resolve(..)_中，不需要跳過而放在第一個_then(..)_裡頭
