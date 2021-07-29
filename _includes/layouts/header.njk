@@ -3,7 +3,7 @@
   <ul class="flex justify-center py-2 space-x-4 lg:space-x-16 ">
   {%- for entry in collections.all | eleventyNavigation %}
     <li class="{% if entry.url == page.url %} underline{% endif %}">
-      <a href="{{ entry.url | url }}" class="text-gray-500 hover:text-gray-900">{{ entry.title }}</a>
+      <a href="{{ entry.url | url }}" class="text-gray-500">{{ entry.title }}</a>
     </li>
   {%- endfor %}
   </ul>

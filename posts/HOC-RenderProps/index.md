@@ -200,7 +200,7 @@ expect(fn(6125499)).to.equal(699) // pass!
 # 🐝工商🐝
 
 [**honestbee career - _Join our big exciting family_**
-Join our big exciting familycareers.honestbee.com](https://careers.honestbee.com/ "https://careers.honestbee.com/")[](https://careers.honestbee.com/)
+Join our big exciting familycareers.honestbee.com](https://careers.honestbee.com/)
 
 honestbee 🐝正在招募前端工程師，也就是我的同事。若你讀到這，也感到有興趣，歡迎參考這個[連結](https://careers.honestbee.com/departments/job/?gh_jid=1431558) ，或是來信 [cuk.bas@gmail.com](mailto:cuk.bas@gmail.com) 我可以幫忙轉介。
 

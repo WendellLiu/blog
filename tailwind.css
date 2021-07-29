@@ -37,13 +37,25 @@
 
   > p {
     @apply leading-relaxed;
+
+    a {
+      @apply underline;
+    }
   }
   > ul {
     @apply list-disc list-inside;
+
+    a {
+      @apply underline;
+    }
   }
 
   > ol {
     @apply list-decimal list-inside;
+
+    a {
+      @apply underline;
+    }
   }
 
   li {
@@ -64,5 +76,5 @@
 }
 
 .post-tag {
-  @apply border border-solid rounded border-gray-400 px-1 text-sm lg:text-base;
+  @apply no-underline border border-solid rounded border-gray-400 px-1 text-sm lg:text-base;
 }
