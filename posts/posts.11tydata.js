@@ -1,4 +1,4 @@
-const WORK_COUNT_LIMITATION = 200
+const WORK_COUNT_LIMITATION = 100
 
 module.exports = {
   eleventyComputed: {
