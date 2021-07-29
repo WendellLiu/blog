@@ -18,9 +18,8 @@ npm run serve
 * [x] Taiwind CSS Integration
 * [x] scoped assets
 * [x] image compression
-* [ ] social media sharing
-* [ ] RSS
-* [ ] GA
-* [ ] Lighhouse badge in the README
+* [ ] RSS Link
+* [X] GA
+* [ ] Lighthouse badge in the README
 * [ ] meta and og
 * [ ] inline css
