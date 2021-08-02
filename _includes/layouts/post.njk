@@ -4,7 +4,13 @@ templateClass: tmpl-post
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-<h1 class="text-2xl lg:text-3xl">{{ title }}</h1>
+ <div class="flex items-center">
+  <h1 class="text-2xl lg:text-3xl">{{ title }}</h1>
+  <button class="ml-4" aria-labelledby="copy-label">
+    <span id="copy-label" hidden>Copy URL</span>
+    <div aria-hidden="true" focusable="false" class="copy-icon w-4 h-4 lg:w-6 lg:h-6 m-2 lg:ml-4"></div>
+  </button>
+</div>
 
 <time class="text-xs lg:text-sm block my-2" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 
