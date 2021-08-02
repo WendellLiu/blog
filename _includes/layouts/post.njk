@@ -6,7 +6,7 @@ templateClass: tmpl-post
 {% block content %}
  <div class="flex items-center">
   <h1 class="text-2xl lg:text-3xl">{{ title }}</h1>
-  <button class="ml-4" aria-labelledby="copy-label">
+  <button id="copy-button" class="ml-4" aria-labelledby="copy-label">
     <span id="copy-label" hidden>Copy URL</span>
     <div aria-hidden="true" focusable="false" class="copy-icon w-4 h-4 lg:w-6 lg:h-6 m-2 lg:ml-4"></div>
   </button>
@@ -43,3 +43,18 @@ templateClass: tmpl-post
 
 {% endblock %}
 
+{% block customScript %}
+<script>
+  function copy() {
+    const el = document.createElement("textarea");
+    el.value = window.location.href;
+    document.body.appendChild(el);
+    el.select()
+    document.execCommand("copy");
+    document.body.removeChild(el);
+  }
+
+  document.querySelector("#copy-button").addEventListener("click", copy);
+</script>
+
+{% endblock %}
