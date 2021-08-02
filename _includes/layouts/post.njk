@@ -6,10 +6,13 @@ templateClass: tmpl-post
 {% block content %}
  <div class="flex items-center">
   <h1 class="text-2xl lg:text-3xl">{{ title }}</h1>
-  <button id="copy-button" class="ml-4" aria-labelledby="copy-label">
-    <span id="copy-label" hidden>Copy URL</span>
-    <div aria-hidden="true" focusable="false" class="copy-icon w-4 h-4 lg:w-6 lg:h-6 m-2 lg:ml-4"></div>
-  </button>
+  <div class="relative flex items-center ml-2 lg:ml-4">
+    <button id="copy-button" aria-labelledby="copy-label">
+      <span id="copy-label" hidden>Copy URL</span>
+      <div aria-hidden="true" focusable="false" class="link-icon w-4 h-4 lg:w-6 lg:h-6"></div>
+    </button>
+    <span id="copy-notification" class="w-24 px-2 py-1 rounded absolute top-full -right-1/2 text-sm bg-black bg-opacity-80 text-white transform-gpu duration-300 translate-y-2 transition-opacity opacity-0">URL Copied</span>
+  </div>
 </div>
 
 <time class="text-xs lg:text-sm block my-2" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
@@ -52,6 +55,12 @@ templateClass: tmpl-post
     el.select()
     document.execCommand("copy");
     document.body.removeChild(el);
+
+    const notification = document.querySelector('#copy-notification');
+    notification.classList.add('opacity-40')
+      setTimeout(function(){
+        notification.classList.remove('opacity-40')
+      }, 2000);
   }
 
   document.querySelector("#copy-button").addEventListener("click", copy);
